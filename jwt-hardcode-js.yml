@@ -1,0 +1,11 @@
+rules:
+  - id: jwt-hardcoded-secret
+    patterns:
+      - pattern-either:
+        - pattern: jsonwebtoken.sign($X, "...", ...)
+        - pattern: |
+            $SECRET = "..."
+            jsonwebtoken.sign($X, $SECRET, ...)
+    message: "hardcoded secret"
+    languages: [javascript]
+    severity: ERROR
