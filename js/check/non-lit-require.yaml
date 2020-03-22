@@ -1,8 +1,0 @@
-rules:
-  - id: non-literal-require-test
-    patterns:
-      - pattern: require(...)
-      - pattern-not: require("...")
-    message: "This is a non literal require test"
-    languages: [javascript]
-    severity: ERROR
