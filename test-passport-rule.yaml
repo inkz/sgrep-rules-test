@@ -1,0 +1,29 @@
+rules:
+- id: hardcoded-passport-secret
+  patterns:
+    - pattern-either:
+      # passport-jwt
+      - pattern: |
+          var $F = require('passport-jwt').Strategy;
+      # passport-facebook
+      - pattern: |
+          var $F = require('passport-facebook').Strategy;
+      # passport-google-oauth2
+      - pattern: |
+          var $F = require('passport-google-oauth2').Strategy;
+      # passport-oauth2
+      - pattern: |
+          var $F = require('passport-oauth2').Strategy;
+      # passport-twitter
+      - pattern: |
+          var $F = require('passport-twitter').Strategy;
+      # passport-google-oauth1
+      - pattern: |
+          var $F = require('passport-google-oauth1').Strategy;
+      # passport-oauth1
+      - pattern: |
+          var $F = require("passport-oauth1").Strategy;
+      # passport-auth0
+      - pattern: |
+          var $F = require('passport-auth0');
+  message: "hardcoded secret value in passport strategy"
